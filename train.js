@@ -1,39 +1,39 @@
-console.log("Jeck Ma Maslahatlari");
+// console.log("Jeck Ma Maslahatlari");
 
-const list = [
-  "yahshi talaba boling", // 0-20
-  "togri boshliq tanlang va koproq hato qiling", // 20-30
-  "uzingizga ishlashingizni boshlang", // 30-40
-  "siz kuchli bolgan narsalarni qiling", // 40-50
-  "yoshlarga investitsiya qiling", // 50-60
-  "endi dam oling, foydasi yoq endi", // 60
-];
-
+// const list = [
+//   "yahshi talaba boling", // 0-20
+//   "togri boshliq tanlang va koproq hato qiling", // 20-30
+//   "uzingizga ishlashingizni boshlang", // 30-40
+//   "siz kuchli bolgan narsalarni qiling", // 40-50
+//   "yoshlarga investitsiya qiling", // 50-60
+//   "endi dam oling, foydasi yoq endi", // 60
+// ];
+//---------------------------------------------
 //CALLBACK FUNCTION
-function maslahatBering(a, callback) {
-  if (typeof a !== "number") callback("insert a number", null);
-  else if (a <= 20) callback(null, list[0]);
-  else if (a > 20 && a <= 30) (null, list[1]);
-  else if (a > 30 && a <= 40) (null, list[2]);
-  else if (a > 40 && a <= 50) (null, list[3]);
-  else if (a > 50 && a <= 60) (null, list[4]);
-  else {
-    setInterval(function () {
-      callback(null, list[5]);
-    }, 1000);
-  }
-}
+// function maslahatBering(a, callback) {
+//   if (typeof a !== "number") callback("insert a number", null);
+//   else if (a <= 20) callback(null, list[0]);
+//   else if (a > 20 && a <= 30) (null, list[1]);
+//   else if (a > 30 && a <= 40) (null, list[2]);
+//   else if (a > 40 && a <= 50) (null, list[3]);
+//   else if (a > 50 && a <= 60) (null, list[4]);
+//   else {
+//     setInterval(function () {
+//       callback(null, list[5]);
+//     }, 1000);
+//   }
+// }
 
-console.log("passed here 0");
+// console.log("passed here 0");
 
-maslahatBering(70, (err, data) => {
-  if (err) console.log("ERROR:", err);
-  else {
-    console.log(data);
-  }
-});
+// maslahatBering(70, (err, data) => {
+//   if (err) console.log("ERROR:", err);
+//   else {
+//     console.log(data);
+//   }
+// });
 
-console.log("passed here 1");
+// console.log("passed here 1");
 //---------------------------------------------
 //AYNC FUNCTION
 // async function masLahatBering(a) {
@@ -97,3 +97,22 @@ console.log("passed here 1");
 //   console.log(javob);
 // }
 // run();
+
+//----------MIT TASK------------
+
+function countLetter(letter, word) {
+  letter = letter.toLowerCase();
+  word = word.toLowerCase();
+
+  let count = 0;
+
+  for (let i = 0; i < word.length; i++) {
+    if (word[i] === letter) {
+      count++;
+    }
+  }
+
+  return count;
+}
+
+console.log(countLetter("E", "ENGINEER")); // 3
