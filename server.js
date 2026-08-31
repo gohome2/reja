@@ -1,53 +1,30 @@
-console.log("Web Serverni boshlash");
-
-// Express 5 uses Object.hasOwn, which is built into Node 18 and newer.
-// Keep the app working on older Node versions as well.
-if (!Object.hasOwn) {
-  Object.hasOwn = (object, property) =>
-    Object.prototype.hasOwnProperty.call(object, property);
-}
-
-const express = require("express");
-const app = express();
 const http = require("http");
-const fs = require("fs");
 
-let user;
-fs.readFile("database/user.json", "utf8", (err, data) => {
-  if (err) {
-    console.log("ERROR:", err);
-  } else {
-    user = JSON.parse(data);
-  }
-});
+const mongodb = require("mongodb");
 
-// 1 Kirish code
-app.use(express.static("public"));
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+let db;
+const connectionString =
+  "mongodb+srv://threed484_db_user:W1dmkAB3bdXhQpiu@cluster0.rl09p1i.mongodb.net/Reja";
 
-// 3: Views code
-app.set("views", "views");
-app.set("view engine", "ejs");
-
-// 4: Routing code
-app.post("/create-item", (req, res) => {
-  console.log(req.body);
-  res.json({ test: "success" });
-});
-
-app.get("/author", (req, res) => {
-  res.render("author", { user: user });
-});
-
-app.get("/", function (req, res) {
-  res.render("reja");
-});
-
-const server = http.createServer(app);
-let PORT = 3000;
-server.listen(PORT, function () {
-  console.log(
-    `The server is running succesfully on port: ${PORT}, http://localhost:${PORT}`,
-  );
-});
+mongodb.connect(
+  connectionString,
+  {
+    userNewUrlParser: true,
+    useUnifiedTopology: true,
+  },
+  (err, client) => {
+    if (err) console.log("ERROR on connection MongoDB");
+    else {
+      console.log("MongoDB connection succeed");
+      module.exports = client;
+      const app = require("./app");
+      const server = http.createServer(app);
+      let PORT = 3000;
+      server.listen(PORT, function () {
+        console.log(
+          `The server is running succesfully on port: ${PORT}, http://localhost:${PORT}`,
+        );
+      });
+    }
+  },
+);
