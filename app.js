@@ -51,9 +51,9 @@ app.post("/create-item", (req, res) => {
   //TODO: code with db here
 });
 
-// app.get("/author", (req, res) => {
-//   res.render("author", { user: user });
-// });
+app.get("/author", (req, res) => {
+  res.render("author", { user: user });
+});
 
 app.get("/", function (req, res) {
   console.log("user entered /");
