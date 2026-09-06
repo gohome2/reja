@@ -119,16 +119,48 @@
 
 //----------MIT TASK------------   // B-TASK:
 
-function countDigits(str) {
-  let count = 0;
+// function countDigits(str) {
+//   let count = 0;
 
-  for (let char of str) {
-    if (char >= "0" && char <= "9") {
-      count++;
+//   for (let char of str) {
+//     if (char >= "0" && char <= "9") {
+//       count++;
+//     }
+//   }
+
+//   return count;
+// }
+
+// console.log(countDigits("ad2a54y79w4e5t0sfgb9"));
+
+//----------MIT TASK------------   // C-TASK:
+
+function checkContent(str1, str2) {
+  if (str1.length !== str2.length) {
+    return false;
+  }
+
+  let letters = str2.split("");
+
+  for (let i = 0; i < str1.length; i++) {
+    let found = false;
+
+    for (let j = 0; j < letters.length; j++) {
+      if (str1[i] === letters[j]) {
+        letters.splice(j, 1);
+        found = true;
+        break;
+      }
+    }
+
+    if (found === false) {
+      return false;
     }
   }
 
-  return count;
+  return true;
 }
 
-console.log(countDigits("ad2a54y79w4e5t0sfgb9"));
+console.log(checkContent("mitgroup", "gmtiprou"));
+console.log(checkContent("hello", "olelh"));
+console.log(checkContent("hello", "world"));
