@@ -135,32 +135,99 @@
 
 //----------MIT TASK------------   // C-TASK:
 
-function checkContent(str1, str2) {
-  if (str1.length !== str2.length) {
-    return false;
+// function checkContent(str1, str2) {
+//   if (str1.length !== str2.length) {
+//     return false;
+//   }
+
+//   let letters = str2.split("");
+
+//   for (let i = 0; i < str1.length; i++) {
+//     let found = false;
+
+//     for (let j = 0; j < letters.length; j++) {
+//       if (str1[i] === letters[j]) {
+//         letters.splice(j, 1);
+//         found = true;
+//         break;
+//       }
+//     }
+
+//     if (found === false) {
+//       return false;
+//     }
+//   }
+
+//   return true;
+// }
+
+// console.log(checkContent("mitgroup", "gmtiprou"));
+// console.log(checkContent("hello", "olelh"));
+// console.log(checkContent("hello", "world"));
+
+//----------MIT TASK------------   // D-TASK:
+
+class Shop {
+  constructor(non, lagmon, cola) {
+    this.non = non;
+    this.lagmon = lagmon;
+    this.cola = cola;
   }
 
-  let letters = str2.split("");
+  vaqt() {
+    const date = new Date();
+    const hour = date.getHours();
+    let minute = date.getMinutes();
 
-  for (let i = 0; i < str1.length; i++) {
-    let found = false;
-
-    for (let j = 0; j < letters.length; j++) {
-      if (str1[i] === letters[j]) {
-        letters.splice(j, 1);
-        found = true;
-        break;
-      }
+    if (minute < 10) {
+      minute = "0" + minute;
     }
 
-    if (found === false) {
-      return false;
-    }
+    return hour + ":" + minute;
   }
 
-  return true;
+  qoldiq() {
+    console.log(
+      `Hozir ${this.vaqt()}da ${this.non}ta non, ${this.lagmon}ta lagmon va ${this.cola}ta cola mavjud!`,
+    );
+  }
+
+  sotish(mahsulot, miqdor) {
+    if (mahsulot === "non") {
+      this.non = this.non - miqdor;
+    } else if (mahsulot === "lagmon") {
+      this.lagmon = this.lagmon - miqdor;
+    } else if (mahsulot === "cola") {
+      this.cola = this.cola - miqdor;
+    } else {
+      console.log("Bunday mahsulot mavjud emas!");
+      return;
+    }
+
+    console.log(`Hozir ${this.vaqt()}da ${miqdor}ta ${mahsulot} sotildi!`);
+  }
+
+  qabul(mahsulot, miqdor) {
+    if (mahsulot === "non") {
+      this.non = this.non + miqdor;
+    } else if (mahsulot === "lagmon") {
+      this.lagmon = this.lagmon + miqdor;
+    } else if (mahsulot === "cola") {
+      this.cola = this.cola + miqdor;
+    } else {
+      console.log("Bunday mahsulot mavjud emas!");
+      return;
+    }
+
+    console.log(
+      `Hozir ${this.vaqt()}da ${miqdor}ta ${mahsulot} qabul qilindi!`,
+    );
+  }
 }
 
-console.log(checkContent("mitgroup", "gmtiprou"));
-console.log(checkContent("hello", "olelh"));
-console.log(checkContent("hello", "world"));
+const shop = new Shop(4, 5, 2);
+
+shop.qoldiq();
+shop.sotish("non", 3);
+shop.qabul("cola", 4);
+shop.qoldiq();
