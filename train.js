@@ -1,3 +1,137 @@
+//----------MIT TASK------------   // D-TASK:
+
+class Shop {
+  constructor(non, lagmon, cola) {
+    this.non = non;
+    this.lagmon = lagmon;
+    this.cola = cola;
+  }
+
+  vaqt() {
+    const date = new Date();
+    const hour = date.getHours();
+    let minute = date.getMinutes();
+
+    if (minute < 10) {
+      minute = "0" + minute;
+    }
+
+    return hour + ":" + minute;
+  }
+
+  qoldiq() {
+    console.log(
+      `Hozir ${this.vaqt()}da ${this.non}ta non, ${this.lagmon}ta lagmon va ${this.cola}ta cola mavjud!`,
+    );
+  }
+
+  sotish(mahsulot, miqdor) {
+    if (mahsulot === "non") {
+      this.non = this.non - miqdor;
+    } else if (mahsulot === "lagmon") {
+      this.lagmon = this.lagmon - miqdor;
+    } else if (mahsulot === "cola") {
+      this.cola = this.cola - miqdor;
+    } else {
+      console.log("Bunday mahsulot mavjud emas!");
+      return;
+    }
+
+    console.log(`Hozir ${this.vaqt()}da ${miqdor}ta ${mahsulot} sotildi!`);
+  }
+
+  qabul(mahsulot, miqdor) {
+    if (mahsulot === "non") {
+      this.non = this.non + miqdor;
+    } else if (mahsulot === "lagmon") {
+      this.lagmon = this.lagmon + miqdor;
+    } else if (mahsulot === "cola") {
+      this.cola = this.cola + miqdor;
+    } else {
+      console.log("Bunday mahsulot mavjud emas!");
+      return;
+    }
+
+    console.log(
+      `Hozir ${this.vaqt()}da ${miqdor}ta ${mahsulot} qabul qilindi!`,
+    );
+  }
+}
+
+const shop = new Shop(4, 5, 2);
+
+shop.qoldiq();
+shop.sotish("non", 3);
+shop.qabul("cola", 4);
+shop.qoldiq();
+
+//----------MIT TASK------------   // C-TASK:
+
+// function checkContent(str1, str2) {
+//   if (str1.length !== str2.length) {
+//     return false;
+//   }
+
+//   let letters = str2.split("");
+
+//   for (let i = 0; i < str1.length; i++) {
+//     let found = false;
+
+//     for (let j = 0; j < letters.length; j++) {
+//       if (str1[i] === letters[j]) {
+//         letters.splice(j, 1);
+//         found = true;
+//         break;
+//       }
+//     }
+
+//     if (found === false) {
+//       return false;
+//     }
+//   }
+
+//   return true;
+// }
+
+// console.log(checkContent("mitgroup", "gmtiprou"));
+// console.log(checkContent("hello", "olelh"));
+// console.log(checkContent("hello", "world"));
+
+//----------MIT TASK------------   // B-TASK:
+
+// function countDigits(str) {
+//   let count = 0;
+
+//   for (let char of str) {
+//     if (char >= "0" && char <= "9") {
+//       count++;
+//     }
+//   }
+
+//   return count;
+// }
+
+// console.log(countDigits("ad2a54y79w4e5t0sfgb9"));
+
+//----------MIT TASK------------ A-TASK
+
+// function countLetter(letter, word) {
+//   letter = letter.toLowerCase();
+//   word = word.toLowerCase();
+
+//   let count = 0;
+
+//   for (let i = 0; i < word.length; i++) {
+//     if (word[i] === letter) {
+//       count++;
+//     }
+//   }
+
+//   return count;
+// }
+
+// console.log(countLetter("E", "ENGINEER")); // 3
+
 // console.log("Jeck Ma Maslahatlari");
 
 // const list = [
@@ -97,137 +231,3 @@
 //   console.log(javob);
 // }
 // run();
-
-//----------MIT TASK------------
-
-// function countLetter(letter, word) {
-//   letter = letter.toLowerCase();
-//   word = word.toLowerCase();
-
-//   let count = 0;
-
-//   for (let i = 0; i < word.length; i++) {
-//     if (word[i] === letter) {
-//       count++;
-//     }
-//   }
-
-//   return count;
-// }
-
-// console.log(countLetter("E", "ENGINEER")); // 3
-
-//----------MIT TASK------------   // B-TASK:
-
-// function countDigits(str) {
-//   let count = 0;
-
-//   for (let char of str) {
-//     if (char >= "0" && char <= "9") {
-//       count++;
-//     }
-//   }
-
-//   return count;
-// }
-
-// console.log(countDigits("ad2a54y79w4e5t0sfgb9"));
-
-//----------MIT TASK------------   // C-TASK:
-
-// function checkContent(str1, str2) {
-//   if (str1.length !== str2.length) {
-//     return false;
-//   }
-
-//   let letters = str2.split("");
-
-//   for (let i = 0; i < str1.length; i++) {
-//     let found = false;
-
-//     for (let j = 0; j < letters.length; j++) {
-//       if (str1[i] === letters[j]) {
-//         letters.splice(j, 1);
-//         found = true;
-//         break;
-//       }
-//     }
-
-//     if (found === false) {
-//       return false;
-//     }
-//   }
-
-//   return true;
-// }
-
-// console.log(checkContent("mitgroup", "gmtiprou"));
-// console.log(checkContent("hello", "olelh"));
-// console.log(checkContent("hello", "world"));
-
-//----------MIT TASK------------   // D-TASK:
-
-class Shop {
-  constructor(non, lagmon, cola) {
-    this.non = non;
-    this.lagmon = lagmon;
-    this.cola = cola;
-  }
-
-  vaqt() {
-    const date = new Date();
-    const hour = date.getHours();
-    let minute = date.getMinutes();
-
-    if (minute < 10) {
-      minute = "0" + minute;
-    }
-
-    return hour + ":" + minute;
-  }
-
-  qoldiq() {
-    console.log(
-      `Hozir ${this.vaqt()}da ${this.non}ta non, ${this.lagmon}ta lagmon va ${this.cola}ta cola mavjud!`,
-    );
-  }
-
-  sotish(mahsulot, miqdor) {
-    if (mahsulot === "non") {
-      this.non = this.non - miqdor;
-    } else if (mahsulot === "lagmon") {
-      this.lagmon = this.lagmon - miqdor;
-    } else if (mahsulot === "cola") {
-      this.cola = this.cola - miqdor;
-    } else {
-      console.log("Bunday mahsulot mavjud emas!");
-      return;
-    }
-
-    console.log(`Hozir ${this.vaqt()}da ${miqdor}ta ${mahsulot} sotildi!`);
-  }
-
-  qabul(mahsulot, miqdor) {
-    if (mahsulot === "non") {
-      this.non = this.non + miqdor;
-    } else if (mahsulot === "lagmon") {
-      this.lagmon = this.lagmon + miqdor;
-    } else if (mahsulot === "cola") {
-      this.cola = this.cola + miqdor;
-    } else {
-      console.log("Bunday mahsulot mavjud emas!");
-      return;
-    }
-
-    console.log(
-      `Hozir ${this.vaqt()}da ${miqdor}ta ${mahsulot} qabul qilindi!`,
-    );
-  }
-}
-
-const shop = new Shop(4, 5, 2);
-
-shop.qoldiq();
-shop.sotish("non", 3);
-shop.qabul("cola", 4);
-shop.qoldiq();

@@ -64,7 +64,7 @@ document.addEventListener("click", function (e) {
       axios
         .post("/edit-item", {
           id: e.target.getAttribute("data-id"),
-          new_input: userInput,
+          newInput: userInput,
         })
         .then((response) => {
           console.log(response.data);
