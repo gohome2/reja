@@ -1,69 +1,87 @@
-//----------MIT TASK------------   // D-TASK:
-
-class Shop {
-  constructor(non, lagmon, cola) {
-    this.non = non;
-    this.lagmon = lagmon;
-    this.cola = cola;
-  }
-
-  vaqt() {
-    const date = new Date();
-    const hour = date.getHours();
-    let minute = date.getMinutes();
-
-    if (minute < 10) {
-      minute = "0" + minute;
+//----------MIT TASK------------   // F-TASK:
+function findDoublers(str) {
+  for (let i = 0; i < str.length; i++) {
+    for (let j = i + 1; j < str.length; j++) {
+      if (str[i] === str[j]) {
+        return true;
+      }
     }
-
-    return hour + ":" + minute;
   }
 
-  qoldiq() {
-    console.log(
-      `Hozir ${this.vaqt()}da ${this.non}ta non, ${this.lagmon}ta lagmon va ${this.cola}ta cola mavjud!`,
-    );
-  }
-
-  sotish(mahsulot, miqdor) {
-    if (mahsulot === "non") {
-      this.non = this.non - miqdor;
-    } else if (mahsulot === "lagmon") {
-      this.lagmon = this.lagmon - miqdor;
-    } else if (mahsulot === "cola") {
-      this.cola = this.cola - miqdor;
-    } else {
-      console.log("Bunday mahsulot mavjud emas!");
-      return;
-    }
-
-    console.log(`Hozir ${this.vaqt()}da ${miqdor}ta ${mahsulot} sotildi!`);
-  }
-
-  qabul(mahsulot, miqdor) {
-    if (mahsulot === "non") {
-      this.non = this.non + miqdor;
-    } else if (mahsulot === "lagmon") {
-      this.lagmon = this.lagmon + miqdor;
-    } else if (mahsulot === "cola") {
-      this.cola = this.cola + miqdor;
-    } else {
-      console.log("Bunday mahsulot mavjud emas!");
-      return;
-    }
-
-    console.log(
-      `Hozir ${this.vaqt()}da ${miqdor}ta ${mahsulot} qabul qilindi!`,
-    );
-  }
+  return false;
 }
 
-const shop = new Shop(4, 5, 2);
+console.log(findDoublers("hello"));
+console.log(findDoublers("world"));
+console.log(findDoublers("apple"));
+console.log(findDoublers("mit"));
 
-shop.qoldiq();
-shop.sotish("non", 3);
-shop.qabul("cola", 4);
-shop.qoldiq();
+//----------MIT TASK------------   // D-TASK:
+
+// class Shop {
+//   constructor(non, lagmon, cola) {
+//     this.non = non;
+//     this.lagmon = lagmon;
+//     this.cola = cola;
+//   }
+
+//   vaqt() {
+//     const date = new Date();
+//     const hour = date.getHours();
+//     let minute = date.getMinutes();
+
+//     if (minute < 10) {
+//       minute = "0" + minute;
+//     }
+
+//     return hour + ":" + minute;
+//   }
+
+//   qoldiq() {
+//     console.log(
+//       `Hozir ${this.vaqt()}da ${this.non}ta non, ${this.lagmon}ta lagmon va ${this.cola}ta cola mavjud!`,
+//     );
+//   }
+
+//   sotish(mahsulot, miqdor) {
+//     if (mahsulot === "non") {
+//       this.non = this.non - miqdor;
+//     } else if (mahsulot === "lagmon") {
+//       this.lagmon = this.lagmon - miqdor;
+//     } else if (mahsulot === "cola") {
+//       this.cola = this.cola - miqdor;
+//     } else {
+//       console.log("Bunday mahsulot mavjud emas!");
+//       return;
+//     }
+
+//     console.log(`Hozir ${this.vaqt()}da ${miqdor}ta ${mahsulot} sotildi!`);
+//   }
+
+//   qabul(mahsulot, miqdor) {
+//     if (mahsulot === "non") {
+//       this.non = this.non + miqdor;
+//     } else if (mahsulot === "lagmon") {
+//       this.lagmon = this.lagmon + miqdor;
+//     } else if (mahsulot === "cola") {
+//       this.cola = this.cola + miqdor;
+//     } else {
+//       console.log("Bunday mahsulot mavjud emas!");
+//       return;
+//     }
+
+//     console.log(
+//       `Hozir ${this.vaqt()}da ${miqdor}ta ${mahsulot} qabul qilindi!`,
+//     );
+//   }
+// }
+
+// const shop = new Shop(4, 5, 2);
+
+// shop.qoldiq();
+// shop.sotish("non", 3);
+// shop.qabul("cola", 4);
+// shop.qoldiq();
 
 //----------MIT TASK------------   // C-TASK:
 
