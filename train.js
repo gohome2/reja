@@ -1,20 +1,28 @@
-//----------MIT TASK------------   // F-TASK:
-function findDoublers(str) {
-  for (let i = 0; i < str.length; i++) {
-    for (let j = i + 1; j < str.length; j++) {
-      if (str[i] === str[j]) {
-        return true;
-      }
-    }
-  }
+//----------MIT TASK------------   // H-TASK:
 
-  return false;
+function getPositive(numbers) {
+  return numbers.filter((number) => number > 0).join("");
 }
 
-console.log(findDoublers("hello"));
-console.log(findDoublers("world"));
-console.log(findDoublers("apple"));
-console.log(findDoublers("mit"));
+console.log(getPositive([1, -4, 2])); // "12"
+
+//----------MIT TASK------------   // F-TASK:
+// function findDoublers(str) {
+//   for (let i = 0; i < str.length; i++) {
+//     for (let j = i + 1; j < str.length; j++) {
+//       if (str[i] === str[j]) {
+//         return true;
+//       }
+//     }
+//   }
+
+//   return false;
+// }
+
+// console.log(findDoublers("hello"));
+// console.log(findDoublers("world"));
+// console.log(findDoublers("apple"));
+// console.log(findDoublers("mit"));
 
 //----------MIT TASK------------   // D-TASK:
 
