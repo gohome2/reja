@@ -1,10 +1,36 @@
-//----------MIT TASK------------   // H-TASK:
+//----------MIT TASK------------   // I-TASK:
 
-function getPositive(numbers) {
-  return numbers.filter((number) => number > 0).join("");
+function majorityElement(numbers) {
+  let mostFrequent = numbers[0];
+  let highestCount = 0;
+
+  for (let i = 0; i < numbers.length; i++) {
+    let count = 0;
+
+    for (let j = 0; j < numbers.length; j++) {
+      if (numbers[i] === numbers[j]) {
+        count++;
+      }
+    }
+
+    if (count > highestCount) {
+      highestCount = count;
+      mostFrequent = numbers[i];
+    }
+  }
+
+  return mostFrequent;
 }
 
-console.log(getPositive([1, -4, 2])); // "12"
+console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4])); // 4
+
+//----------MIT TASK------------   // H-TASK:
+
+// function getPositive(numbers) {
+//   return numbers.filter((number) => number > 0).join("");
+// }
+
+// console.log(getPositive([1, -4, 2])); // "12"
 
 //----------MIT TASK------------   // F-TASK:
 // function findDoublers(str) {
